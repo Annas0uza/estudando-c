@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main(void) {
+
+  float num1, num2, media;
+  printf("Digite um número:\n");
+  scanf("%f", &num1);
+  printf("Digite outro número:\n");
+  scanf("%f", &num2);
+  
+  media=(num1+num2)/2;
+  printf("A sua média é: %.1f",media);
+
+  if (media>=6.0)
+  {
+    printf("\nAluno Esperto");
+  }
+  else if((media>=4)&&(media<6))
+  {
+    printf("\nAluno nao muito esperto");
+  }
+    else
+  {
+    printf("\nAluno pouco esperto");
+  }
+  return 0;
+}
