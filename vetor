@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <time.h>
+
+int main(void) {
+  srand(time(NULL));
+  int pirulito[6];
+  for(int i=0; i<6; i++){
+    pirulito[i]=rand()%100;
+
+    printf("\n$d", pirulito[i]);
+  }
+
+
+
+  
+  return 0;
+}
