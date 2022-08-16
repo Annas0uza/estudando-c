@@ -11,8 +11,9 @@ int main(void) {
   switch (opcao) {
     int numAleatorio = 0;
   case 1:
-    numAleatorio = rand();
+    numAleatorio = rand()%100;
     printf("Valor gerado: %d", numAleatorio);
+    break;
   }
 
   return 0;
