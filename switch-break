@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main(void) {
+  int opcao;
+
+  printf("\nDigite um valor de 1 a 3\n");
+  scanf("%d", &opcao);
+
+  switch (opcao) {
+  case 1:
+    printf("\nVocê é triste!");
+    break;
+
+  case 2:
+    printf("\nVocê é feliz");
+    break;
+
+  case 3:
+    printf("\nVocê é indiferente");
+    break;
+
+  default:
+    printf("\nVocê não existe");
+
+    main();
+  }
+
+  return 0;
+}
