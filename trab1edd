@@ -1,0 +1,97 @@
+#include <limits.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int maior(int *vetOriginal, int n) {
+  int max = INT_MIN;
+  for (int i = 0; i < n; i++) {
+    if (vetOriginal[i] > max) {
+      max = vetOriginal[i];
+    }
+  }
+  return max;
+}
+
+void printvetOriginal(int *vetOriginal, int n) {
+  for (int i = 0; i < n; i++) {
+    printf("%d\n", vetOriginal[i]);
+  }
+  printf("\n");
+}
+
+int *vetOriginalAleatorio(int n) {
+  int *vetOriginal = (int *)malloc(sizeof(int) * n);
+  for (int i = 0; i < n; i++) {
+    vetOriginal[i] = rand() % 100;
+  }
+  return vetOriginal;
+}
+void printPares(int *vetOriginal, int n) {
+  for (int i = 0; i < n; i++) {
+    if (vetOriginal[i] % 2 == 0) { 
+      printf("Sao %d numeros pares", (int)sizeof(vetOriginal[i]) - 1);
+      break;
+    }
+  }
+  printf("\n");
+}
+int soma(int *vetOriginal, int n) {
+  int soma = 0;
+  for (int i = 0; i < n; i++) {
+    soma += vetOriginal[i];
+  }
+  printf("O resultado da somatoria e %d\n", soma);
+}
+int inversa(int *vetOriginal, int n) {
+  int inversa = 0;
+  for (int i = 0; i < n / 2; i++) {
+    int troca = vetOriginal[i];
+    vetOriginal[i] = vetOriginal[n - 1 - i]; 
+    vetOriginal[n - 1 - i] = troca;
+  }
+  printvetOriginal(vetOriginal, n); 
+}
+
+int main() {
+  printf("\n—--------------------- MENU —---------------------\n");
+  printf("Digite 1 - para criar um vetor com 10 numeros aleatorios\n");
+  printf("\nDigite 2- para mostrar o elemento de maior valor do vetOriginal\n");
+  printf("\nDigite 3- para contabilizar quantos elementos sao pares no "
+         "vetOriginal\n");
+  printf("\nDigite 4- para mostrar o valor do somatorio dos elementos do "
+         "vetOriginal\n");
+  printf("\nDigite 5- para mostrar os elementos do vetorOriginal na ordem "
+         "inversa (O vetor deve ser invertido de verdade)\n");
+  printf("\nDigite 6 - para sair\n");
+  int opcao;
+  int n = 10;
+  int *vetOriginal = vetOriginalAleatorio(n);
+  int maiorn = maior(vetOriginal, n);
+  int exec = 1;
+  while (exec == 1) {
+    printf("\nDigite sua opcao: ");
+    scanf("%d", &opcao);
+    switch (opcao) {
+    case 1:
+      printvetOriginal(vetOriginal, n);
+      break;
+    case 2:
+      printf("O maior numero e: %d\n", maiorn);
+      break;
+    case 3:
+      printPares(vetOriginal, n);
+      break;
+    case 4:
+      soma(vetOriginal, n);
+      break;
+    case 5:
+      inversa(vetOriginal, n);
+      break;
+    case 6:
+      printf("\nAdeus!");
+      exec = 0;
+      break;
+    }
+  }
+}
+
